@@ -105,3 +105,7 @@
     - helmet – basic HTTP security
 
     - express-validator – alternative to Joi
+
+---
+
+## Project Folder Setup
