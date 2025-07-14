@@ -4,9 +4,9 @@ const morgan = require("morgan");
 const path = require("path");
 const fs = require("fs");
 
-const PATHS = require("./utils/paths.js");
-const ensureDirExist = require("./utils/ensureDirExist.js");
-const test = require("./routes/auth.routes.js");
+const PATHS = require("./utils/paths");
+const ensureDirExist = require("./utils/ensureDirExist");
+const test = require("./routes/auth.routes");
 
 const app = express();
 

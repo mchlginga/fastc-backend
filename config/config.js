@@ -1,7 +1,7 @@
 require("dotenv").config();
 
-const dev = require("./dev.js");
-const prod = require("./prod.js");
+const dev = require("./dev");
+const prod = require("./prod");
 
 const env = process.env.NODE_ENV || "development";
 
