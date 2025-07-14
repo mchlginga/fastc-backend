@@ -6,6 +6,7 @@ const fs = require("fs");
 
 const PATHS = require("./utils/paths.js");
 const ensureDirExist = require("./utils/ensureDirExist.js");
+const test = require("./routes/auth.routes.js");
 
 const app = express();
 
@@ -22,5 +23,8 @@ app.use(morgan("combined", { stream: accessLogStream }));
 if (process.env.ENV === "development") {
     app.use(morgan("dev"));
 }
+
+// auth routes 
+app.use("/api", test);
 
 module.exports = app;
