@@ -1,6 +1,6 @@
 const app = require("./app.js");
 const config = require("./config/config.js");
-const connectDB = require("./lib/database.js");
+const connectDB = require("./config/database.js");
 
 const port = config.port;
 connectDB();
