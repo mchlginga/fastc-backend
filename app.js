@@ -1,14 +1,16 @@
 const express = require("express");
+const helmet = require("helmets");
 const morgan = require("morgan");
 const path = require("path");
 const fs = require("fs");
 
-const {PATHS} = require("./lib/constants.js");
-const {ensureDirExist} = require("./lib/utils.js");
+const PATHS = require("./utils/paths.js");
+const ensureDirExist = require("./utils/ensureDirExist.js");
 
 const app = express();
 
 // basic middleware
+app.use(helmet());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

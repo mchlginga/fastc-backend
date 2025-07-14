@@ -8,4 +8,4 @@ const ensureDirExist = (filePath) => {
     }
 };
 
-module.exports = {ensureDirExist};
+module.exports = ensureDirExist;
