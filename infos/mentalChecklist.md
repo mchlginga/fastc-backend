@@ -2,9 +2,9 @@
 
 1. Core Features
 2. Tech Stack
-3. 
-4.
-5.
+3. Project Folder Setup
+4. Task Breakdown
+5. Version Control
 
 ---
 
