@@ -3,9 +3,11 @@ const router = express.Router();
 
 const protect = require("../middlewares/auth.middleware");
 const {
-    getAllTrainees
+    getAllTrainees,
+    getTraineeById
 } = require("../controllers/trainee.controller");
 
 router.get("/", protect, getAllTrainees);
+router.get("/:id", protect, getTraineeById);
 
 module.exports = router;
