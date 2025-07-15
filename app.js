@@ -6,7 +6,7 @@ const fs = require("fs");
 
 const PATHS = require("./utils/paths");
 const ensureDirExist = require("./utils/ensureDirExist");
-const test = require("./routes/auth.routes");
+const authRoute = require("./routes/auth.routes");
 
 const app = express();
 
@@ -25,6 +25,6 @@ if (process.env.ENV === "development") {
 }
 
 // auth routes 
-app.use("/api", test);
+app.use("/api", authRoute);
 
 module.exports = app;
