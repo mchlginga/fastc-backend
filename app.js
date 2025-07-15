@@ -6,8 +6,11 @@ const fs = require("fs");
 
 const PATHS = require("./utils/paths");
 const ensureDirExist = require("./utils/ensureDirExist");
-const authRoute = require("./routes/auth.routes");
 const errorHandling = require("./middlewares/errorHandling");
+
+// routes
+const authRoute = require("./routes/auth.routes");
+const traineeRoutes = require("./routes/trainee.routes");
 
 const app = express();
 
@@ -26,7 +29,10 @@ if (process.env.ENV === "development") {
 }
 
 // auth routes 
-app.use("/api", authRoute);
+app.use("/api/auth", authRoute);
+
+// trainee routes
+app.use("/api/trainee", traineeRoutes);
 
 // middleware custom error handling
 app.use(errorHandling);
