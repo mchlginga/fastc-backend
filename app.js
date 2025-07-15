@@ -7,6 +7,7 @@ const fs = require("fs");
 const PATHS = require("./utils/paths");
 const ensureDirExist = require("./utils/ensureDirExist");
 const authRoute = require("./routes/auth.routes");
+const errorHandling = require("./middlewares/errorHandling");
 
 const app = express();
 
@@ -26,5 +27,12 @@ if (process.env.ENV === "development") {
 
 // auth routes 
 app.use("/api", authRoute);
+
+// middleware custom error handling
+app.use(errorHandling);
+
+app.use( (req, res) => {
+    res.status(404).json({ message: "Route not found." });
+});
 
 module.exports = app;
