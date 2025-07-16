@@ -1,11 +1,11 @@
 const ensureDirExist = require("./ensureDirExist");
 const generateToken = require("./generateToken");
-const path = require("./paths");
+const PATHS = require("./paths");
 const statusCodes = require("./statusCodes");
 
 module.exports = {
     ensureDirExist,
     generateToken,
-    path,
+    PATHS,
     statusCodes
 };
