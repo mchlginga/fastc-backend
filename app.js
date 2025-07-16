@@ -4,8 +4,10 @@ const morgan = require("morgan");
 const path = require("path");
 const fs = require("fs");
 
-const PATHS = require("./utils/paths");
-const ensureDirExist = require("./utils/ensureDirExist");
+// utils
+const { PATHS, ensureDirExist } = require("./utils/index");
+
+// middleware
 const errorHandling = require("./middlewares/errorHandling");
 
 // routes
