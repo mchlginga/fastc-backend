@@ -28,3 +28,25 @@ exports.getTraineeById = async (req, res, next) => {
         next(error);
     }
 };
+
+// update trainee by id
+exports.updateTrainee = async (req, res, next) => {
+    try {
+        const { id } = req.params;
+        const { password, role, ...updateData } = req.body;
+        
+        const updated = await User.findByIdAndUpdate(
+            id,
+            updateData,
+            { new: true, runValidators: true }
+        ).select("-password");
+
+        if (!updated || updated.role !== "trainee") {
+            return res.status(statusCodes.NOT_FOUND).json({ message: "Trainee not found."});
+        }
+
+        res.status(statusCodes.OK).json(updated);
+    } catch (error) {
+        next(error);
+    }
+};
