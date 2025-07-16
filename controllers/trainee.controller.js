@@ -17,9 +17,9 @@ exports.getTraineeById = async (req, res, next) => {
     try {
         const { id } = req.params;
 
-        const trainee = await User.findById(id).select("-password");
+        const trainee = await User.findOne({ _id: id, role: "trainee" }).select("-password");
 
-        if (!trainee || trainee.role !== "trainee") {
+        if (!trainee) {
             return res.status(statusCodes.NOT_FOUND).json({ message: "Trainee not found."});
         }
 
@@ -35,13 +35,13 @@ exports.updateTrainee = async (req, res, next) => {
         const { id } = req.params;
         const { password, role, ...updateData } = req.body;
         
-        const updated = await User.findByIdAndUpdate(
-            id,
+        const updated = await User.findOneAndUpdate(
+            { _id: id, role: "trainee" },
             updateData,
             { new: true, runValidators: true }
         ).select("-password");
 
-        if (!updated || updated.role !== "trainee") {
+        if (!updated) {
             return res.status(statusCodes.NOT_FOUND).json({ message: "Trainee not found."});
         }
 
