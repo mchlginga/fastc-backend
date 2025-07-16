@@ -5,14 +5,19 @@ const path = require("path");
 const fs = require("fs");
 
 // utils
-const { PATHS, ensureDirExist } = require("./utils/index");
+const { 
+    PATHS, 
+    ensureDirExist, 
+    statusCodes 
+} = require("./utils/index");
 
 // middleware
 const errorHandling = require("./middlewares/errorHandling");
 
 // routes
-const authRoute = require("./routes/auth.routes");
+const authRoutes = require("./routes/auth.routes");
 const traineeRoutes = require("./routes/trainee.routes");
+const uploadRoutes = require("./routes/upload.routes");
 
 const app = express();
 
@@ -31,16 +36,19 @@ if (process.env.ENV === "development") {
 }
 
 // auth routes 
-app.use("/api/auth", authRoute);
+app.use("/api/auth", authRoutes);
 
 // trainee routes
 app.use("/api/trainee", traineeRoutes);
+
+// upload routes
+app.use("/api/upload", uploadRoutes);
 
 // middleware custom error handling
 app.use(errorHandling);
 
 app.use( (req, res) => {
-    res.status(404).json({ message: "Route not found." });
+    res.status(statusCodes.NOT_FOUND).json({ message: "Route not found." });
 });
 
 module.exports = app;
