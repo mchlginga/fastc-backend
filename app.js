@@ -19,6 +19,7 @@ const authRoutes = require("./routes/auth.routes");
 const traineeRoutes = require("./routes/trainee.routes");
 const uploadRoutes = require("./routes/upload.routes");
 const certificateRoutes = require("./routes/certificate.routes");
+const jobRoutes = require("./routes/job.routes");
 
 const app = express();
 
@@ -47,6 +48,9 @@ app.use("/api/upload", uploadRoutes);
 
 // certificate routes
 app.use("/api/certificate", certificateRoutes);
+
+// job routes
+app.use("/api/job", jobRoutes)
 
 // middleware custom error handling
 app.use(errorHandling);
