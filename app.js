@@ -18,6 +18,7 @@ const errorHandling = require("./middlewares/errorHandling");
 const authRoutes = require("./routes/auth.routes");
 const traineeRoutes = require("./routes/trainee.routes");
 const uploadRoutes = require("./routes/upload.routes");
+const certificateRoutes = require("./routes/certificate.routes");
 
 const app = express();
 
@@ -43,6 +44,9 @@ app.use("/api/trainee", traineeRoutes);
 
 // upload routes
 app.use("/api/upload", uploadRoutes);
+
+// certificate routes
+app.use("/api/certificate", certificateRoutes);
 
 // middleware custom error handling
 app.use(errorHandling);
