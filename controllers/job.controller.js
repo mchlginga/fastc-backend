@@ -43,3 +43,20 @@ exports.getJobById = async (req, res, next) => {
         next(error);
     }
 };
+
+// update job by id
+exports.updateJobById = async (req, res, next) => {
+    try {
+        const { id } = req.params;
+
+        const job = await Job.findByIdAndUpdate(
+            id, 
+            req.body,
+            { new: true, runValidators: true }
+        );
+
+        res.status(statusCodes.OK).json(job);
+    } catch (error) {
+        next(error);
+    }
+};
