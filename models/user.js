@@ -25,6 +25,14 @@ const userSchema = new mongoose.Schema ({
         default: []
     },
 
+    certificates: [
+        {
+            name: String,
+            issuedAt: Date,
+            expiresAt: Date
+        }
+    ],
+
     role: {
         type: String,
         enum: ["trainee", "admin", "company"],
