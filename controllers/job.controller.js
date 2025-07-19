@@ -26,3 +26,20 @@ exports.getAllJobs = async (req, res, next) => {
         next(error);
     }
 };
+
+// get job by id
+exports.getJobById = async (req, res, next) => {
+    try {
+        const { id } = req.params;
+
+        const job = await Job.findById(id).populate("postedBy", "name");
+
+        if (!job) {
+            return res.status(statusCodes.NOT_FOUND).json({ message: "Job not found." });
+        }
+
+        res.status(statusCodes.OK).json(job);
+    } catch (error) {
+        next(error);
+    }
+};
