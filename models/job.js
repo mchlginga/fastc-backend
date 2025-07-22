@@ -8,9 +8,9 @@ const jobSchema = new mongoose.Schema ({
 
     description: String,
 
-    skillRequired: [String],
+    skillsRequired: [String],
 
-    certRequired: [String],
+    certsRequired: [String],
 
     postedBy: {
         type: mongoose.Schema.Types.ObjectId, ref: "User"
