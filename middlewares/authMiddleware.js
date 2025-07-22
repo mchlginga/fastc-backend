@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 
 const { statusCodes } = require("../utils/index");
-const config = require("../config/config");
+const config = require("../config/index");
 const User = require("../models/user");
 
 const protect = async (req, res, next) => {

@@ -4,7 +4,7 @@ const router = express.Router();
 const {
     getTraineesMatchToJob,
     // getJobMatchToTrainee
-} = require("../controllers/match.controller");
+} = require("../controllers/matchController");
 
 const { protect, checkRole } = require("../middlewares/index");
 

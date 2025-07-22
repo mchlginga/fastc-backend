@@ -15,12 +15,12 @@ const {
 const errorHandling = require("./middlewares/errorHandling");
 
 // routes
-const authRoutes = require("./routes/auth.routes");
-const traineeRoutes = require("./routes/trainee.routes");
-const uploadRoutes = require("./routes/upload.routes");
-const certificateRoutes = require("./routes/certificate.routes");
-const jobRoutes = require("./routes/job.routes");
-const matchRoutes = require("./routes/match.routes");
+const authRoutes = require("./routes/authRoute");
+const traineeRoutes = require("./routes/traineeRoute");
+const uploadRoutes = require("./routes/uploadRoute");
+const certificateRoutes = require("./routes/certRoute");
+const jobRoutes = require("./routes/jobRoute");
+const matchRoutes = require("./routes/matchRoute");
 
 const app = express();
 

@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const { uploadProfilePic } = require("../controllers/upload.controller");
+const { uploadProfilePic } = require("../controllers/uploadController");
 
 // middlewares
 const { protect, upload } = require("../middlewares/index");
