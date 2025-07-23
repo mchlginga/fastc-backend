@@ -7,7 +7,7 @@ const {
     getJobById,
     updateJobById,
     deleteJobById
-} = require("../controllers/jobController");
+} = require("../controllers/job");
 
 const { protect, checkRole } = require("../middlewares/index");
 

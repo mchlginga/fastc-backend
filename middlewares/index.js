@@ -1,7 +1,7 @@
-const protect = require("./authMiddleware");
+const protect = require("./auth");
 const errorHandling = require("./errorHandling");
-const checkRole = require("./roleMiddleware");
-const upload = require("./uploadMiddleware");
+const checkRole = require("./role");
+const upload = require("./upload");
 
 module.exports = {
     protect,

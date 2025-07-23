@@ -1,14 +1,13 @@
 const express = require("express");
 const router = express.Router();
 
-const protect = require("../middlewares/authMiddleware");
+const { protect, checkRole } = require("../middlewares/index");
 const {
     getAllTrainees,
     getTraineeById,
     updateTrainee,
     deleteTrainee
-} = require("../controllers/traineeController");
-const checkRole = require("../middlewares/roleMiddleware");
+} = require("../controllers/trainee");
 
 router.get("/", protect, checkRole("admin"), getAllTrainees);
 router.get("/:id", protect, checkRole(["admin", "company"]), getTraineeById);

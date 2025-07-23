@@ -15,12 +15,12 @@ const {
 const errorHandling = require("./middlewares/errorHandling");
 
 // routes
-const authRoutes = require("./routes/authRoute");
-const traineeRoutes = require("./routes/traineeRoute");
-const uploadRoutes = require("./routes/uploadRoute");
-const certificateRoutes = require("./routes/certRoute");
-const jobRoutes = require("./routes/jobRoute");
-const matchRoutes = require("./routes/matchRoute");
+const auth = require("./routes/auth");
+const trainee = require("./routes/trainee");
+const upload = require("./routes/upload");
+const certificate = require("./routes/certificate");
+const job = require("./routes/job");
+const match = require("./routes/match");
 
 const app = express();
 
@@ -39,22 +39,22 @@ if (process.env.ENV === "development") {
 }
 
 // auth routes 
-app.use("/api/auth", authRoutes);
+app.use("/api/auth", auth);
 
 // trainee routes
-app.use("/api/trainee", traineeRoutes);
+app.use("/api/trainee", trainee);
 
 // upload routes
-app.use("/api/upload", uploadRoutes);
+app.use("/api/upload", upload);
 
 // certificate routes
-app.use("/api/certificate", certificateRoutes);
+app.use("/api/certificate", certificate);
 
 // job routes
-app.use("/api/job", jobRoutes)
+app.use("/api/job", job)
 
 // match routes
-app.use("/api/match", matchRoutes);
+app.use("/api/match", match);
 
 // middleware custom error handling
 app.use(errorHandling);
